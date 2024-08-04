@@ -1,0 +1,85 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 1px 1px 2px 1px #d3d3d3;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.section:hover {
+  box-shadow: 1px 1px 2px 1px #fb1;
+}
+
+.country {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.country img {
+  border: 1.5px solid black;
+  max-width: 60px;
+}
+
+.country p {
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.medals {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.medals p {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.gold,
+.silver,
+.bronze,
+.total {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.gold::before,
+.silver::before,
+.bronze::before,
+.total::before {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.gold::before {
+  background-color: gold;
+}
+
+.silver::before {
+  background-color: silver;
+}
+
+.bronze::before {
+  background-color: #dcb386;
+}
+
+.total::before {
+  border-radius: 0;
+  width: 27px;
+  height: 24px;
+  background: url('../../assets/medalAll.svg') no-repeat center center;
+}

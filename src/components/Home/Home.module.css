@@ -1,0 +1,40 @@
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 1px 1px 2px 1px #d3d3d3;
+  border-radius: 5px;
+}
+
+.barCountry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.country img {
+  border: 1.5px solid black;
+  max-width: 60px;
+}
+
+.barCountry p {
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.barMedals {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.barMedals p {
+  font-size: 1.25rem;
+  font-weight: bold;
+}

@@ -8,7 +8,7 @@ const Header = () => {
     <div className={styles.header}>
       <Emblema />
       <nav className={styles.nav}>
-        <NavLink to="/">Países</NavLink>
+        <NavLink to="/">Medalhas</NavLink>
         <NavLink to="/esportes">Esportes</NavLink>
         <NavLink to="/eventos">Eventos</NavLink>
         <NavLink to="/locais">Locais</NavLink>

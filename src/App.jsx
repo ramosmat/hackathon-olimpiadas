@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import Home from './components/Home';
-import Esportes from './components/esportes/Esportes';
-import Eventos from './components/eventos/Eventos';
-import Locais from './components/locais/Locais';
+import Home from './components/Home/Home';
+import Esportes from './components/Esportes/Esportes';
+import Eventos from './components/Eventos/Eventos';
+import Locais from './components/Locais/Locais';
 
 const App = () => {
   return (
