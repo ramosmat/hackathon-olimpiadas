@@ -37,9 +37,11 @@ const Home = () => {
           </div>
         </section>
 
-        {data.data.map((country) => (
-          <CountryCard key={country.id} country={country} />
-        ))}
+        <section>
+          {data.data.map((country) => (
+            <CountryCard key={country.id} country={country} />
+          ))}
+        </section>
       </div>
     );
   }
