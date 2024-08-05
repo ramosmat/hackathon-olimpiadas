@@ -2,7 +2,7 @@ import React from 'react';
 import useFetch from '../../hooks/useFetch';
 import { localsUrl } from '../../API';
 import LocalCard from './LocalCard';
-import { Loader } from 'lucide-react';
+import { Circles, ColorRing } from 'react-loader-spinner';
 
 const Locais = () => {
   const { loading, data, request } = useFetch();
@@ -17,8 +17,11 @@ const Locais = () => {
 
   if (loading)
     return (
-      <div className="loader">
-        <Loader />
+      <div className="container">
+        <h1 className="title">Locais</h1>
+        <div className="loader">
+          <ColorRing />
+        </div>
       </div>
     );
 

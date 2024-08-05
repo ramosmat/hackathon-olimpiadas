@@ -3,7 +3,7 @@ import { countriesUrl } from '../../API';
 import useFetch from '../../hooks/useFetch';
 import styles from './Home.module.css';
 import CountryCard from './CountryCard';
-import { Loader } from 'lucide-react';
+import { Circles, ColorRing } from 'react-loader-spinner';
 
 const Home = () => {
   const total = 10;
@@ -19,8 +19,11 @@ const Home = () => {
 
   if (loading)
     return (
-      <div className="loader">
-        <Loader />
+      <div className="container">
+        <h1 className="title">Quadro de Medalhas</h1>
+        <div className="loader">
+          <ColorRing />
+        </div>
       </div>
     );
 
@@ -28,7 +31,6 @@ const Home = () => {
     return (
       <div className="container">
         <h1 className="title">Quadro de Medalhas</h1>
-
         <section className={styles.bar}>
           <div className={styles.barCountry}>
             <p>#</p>
@@ -42,7 +44,6 @@ const Home = () => {
             <p>Total</p>
           </div>
         </section>
-
         <section>
           {data.data.map((country) => (
             <CountryCard key={country.id} country={country} />

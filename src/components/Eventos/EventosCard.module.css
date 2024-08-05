@@ -1,0 +1,51 @@
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px 1px #d3d3d3;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 2px 1px #fb1;
+}
+
+.eventTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.divImg {
+  max-width: 30px;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.p {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.span {
+  font-weight: 900;
+  color: #4b5563;
+}
+
+@media (width <= 360px) {
+  .divImg {
+    max-width: 20px;
+  }
+  .name {
+    font-size: 1.25rem;
+  }
+}

@@ -2,10 +2,10 @@ import React from 'react';
 import { sportsUrl } from '../../API';
 import useFetch from '../../hooks/useFetch';
 import EsportesCard from './EsportesCard';
-import { Loader } from 'lucide-react';
+import { Circles, ColorRing } from 'react-loader-spinner';
 
 const Esportes = () => {
-  const { data, loading, request } = useFetch(sportsUrl);
+  const { data, loading, request } = useFetch();
 
   React.useEffect(() => {
     async function getSports() {
@@ -17,12 +17,13 @@ const Esportes = () => {
 
   if (loading)
     return (
-      <div className="loader">
-        <Loader />
+      <div className="container">
+        <h1 className="title">Esportes</h1>
+        <div className="loader">
+          <ColorRing />
+        </div>
       </div>
     );
-
-  console.log(data);
 
   if (data) {
     return (
