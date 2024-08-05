@@ -11,7 +11,6 @@ const LocalCard = ({ local }) => {
         rel="noreferrer"
       >
         <h2 className={styles.name}>{local.name}</h2>
-        <p className={styles.p}>Veja mais</p>
       </a>
     </div>
   );
