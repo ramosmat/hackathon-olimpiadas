@@ -3,6 +3,7 @@ import { countriesUrl } from '../../API';
 import useFetch from '../../hooks/useFetch';
 import styles from './Home.module.css';
 import CountryCard from './CountryCard';
+import { Loader } from 'lucide-react';
 
 const Home = () => {
   const total = 10;
@@ -16,7 +17,12 @@ const Home = () => {
     fetchCountries();
   }, [request]);
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading)
+    return (
+      <div className="loader">
+        <Loader />
+      </div>
+    );
 
   if (data) {
     return (

@@ -2,6 +2,7 @@ import React from 'react';
 import useFetch from '../../hooks/useFetch';
 import { localsUrl } from '../../API';
 import LocalCard from './LocalCard';
+import { Loader } from 'lucide-react';
 
 const Locais = () => {
   const { loading, data, request } = useFetch();
@@ -14,7 +15,12 @@ const Locais = () => {
     getLocals();
   }, [request]);
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading)
+    return (
+      <div className="loader">
+        <Loader />
+      </div>
+    );
 
   if (data)
     return (
