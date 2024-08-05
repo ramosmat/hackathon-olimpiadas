@@ -9,6 +9,9 @@
 
 @media (width <= 500px) {
   .header {
+    gap: 1rem;
+  }
+  .header {
     padding: 0.5rem 1rem;
     flex-direction: column;
   }
@@ -40,6 +43,9 @@
 }
 
 @media (width <= 350px) {
+  .nav {
+    gap: 0;
+  }
   .nav a {
     font-size: 1rem;
   }

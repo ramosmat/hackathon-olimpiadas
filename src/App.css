@@ -76,3 +76,16 @@ a {
   align-items: center;
   animation: spin 2s linear infinite;
 }
+
+/* Classes usadas nas paginas de Esportes e Eventos */
+.cardsFlex {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (width <= 460px) {
+  .cardsFlex {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

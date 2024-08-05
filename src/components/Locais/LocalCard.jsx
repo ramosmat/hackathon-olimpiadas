@@ -3,7 +3,7 @@ import styles from './LocalCard.module.css';
 
 const LocalCard = ({ local }) => {
   return (
-    <div className={styles.card} key={local.id}>
+    <div className={styles.card}>
       <a
         className={styles.url}
         href={local.url}

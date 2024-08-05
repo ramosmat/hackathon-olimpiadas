@@ -22,16 +22,18 @@ const Esportes = () => {
       </div>
     );
 
+  console.log(data);
+
   if (data) {
     return (
       <div className="container">
         <h1 className="title">Esportes</h1>
 
-        <section>
+        <div className="cardsFlex">
           {data.data.map((sport) => (
-            <EsportesCard key={sport.id} />
+            <EsportesCard key={sport.id} sport={sport} />
           ))}
-        </section>
+        </div>
       </div>
     );
   }

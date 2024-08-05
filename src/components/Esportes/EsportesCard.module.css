@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px 1px #d3d3d3;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 2px 1px #fb1;
+}
+
+.divImg {
+  max-width: 100px;
+}
+
+@media (width <= 360px) {
+  .divImg {
+    max-width: 80px;
+  }
+  .name {
+    font-size: 1.25rem;
+  }
+}
