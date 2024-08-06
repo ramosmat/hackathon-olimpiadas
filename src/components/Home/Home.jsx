@@ -5,7 +5,7 @@ import Country from './Paises/Country';
 
 const Home = () => {
   return (
-    <div className="container">
+    <div>
       <Routes>
         <Route path="/" element={<CountryCard />} />
         <Route path="paises/*" element={<Country />} />

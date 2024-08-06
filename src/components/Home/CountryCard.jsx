@@ -54,7 +54,7 @@ const CountryCard = ({ country }) => {
 
   if (data)
     return (
-      <>
+      <div className="container">
         <h1 className="title">Quadro de Medalhas</h1>
         <section className={styles.bar}>
           <div className={styles.barCountry}>
@@ -78,7 +78,7 @@ const CountryCard = ({ country }) => {
             <CountryItem key={country.id} country={country} />
           ))}
         </section>
-      </>
+      </div>
     );
 };
 

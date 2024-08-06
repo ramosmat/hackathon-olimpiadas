@@ -85,6 +85,8 @@ a {
 }
 
 .loader {
+  width: 80px;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,8 +96,14 @@ a {
 /* Classes usadas nas paginas de Esportes e Eventos */
 .cardsFlex {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
+}
+
+@media (width <= 800px) {
+  .cardsFlex {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (width <= 460px) {

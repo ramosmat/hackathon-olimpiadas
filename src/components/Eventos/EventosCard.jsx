@@ -6,6 +6,7 @@ const EventosCard = ({ event }) => {
     <div className={styles.card}>
       <div className={styles.eventTitle}>
         <h2 className={styles.name}>{event.discipline_name}</h2>
+        <p>{event.id}</p>
         <div className={styles.divImg}>
           <img src={event.discipline_pictogram} alt="event_emblem" />
         </div>
