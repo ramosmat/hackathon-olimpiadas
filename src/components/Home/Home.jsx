@@ -64,9 +64,13 @@ const Home = () => {
 
           <div className={styles.barMedals}>
             <p>Ouro</p>
+            <span className={styles.gold} />
             <p>Prata</p>
+            <span className={styles.silver} />
             <p>Bronze</p>
+            <span className={styles.bronze} />
             <p>Total</p>
+            <span className={styles.total} />
           </div>
         </section>
         <section>

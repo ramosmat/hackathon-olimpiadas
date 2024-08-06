@@ -16,11 +16,6 @@
   gap: 1rem;
 }
 
-.country img {
-  border: 1.5px solid black;
-  max-width: 60px;
-}
-
 .barCountry p {
   font-size: 1.25rem;
   font-style: italic;
@@ -37,4 +32,48 @@
 .barMedals p {
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+@media (width <= 600px) {
+  .barCountry p,
+  .barMedals p {
+    font-size: 1rem;
+  }
+  .barCountry,
+  .barMedals {
+    gap: 0.5rem;
+  }
+}
+
+@media (width <= 350px) {
+  .barMedals p {
+    display: none;
+  }
+  .gold,
+  .silver,
+  .bronze,
+  .total {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+  .gold {
+    background-color: #fb1;
+  }
+
+  .silver {
+    background-color: silver;
+  }
+
+  .bronze {
+    background-color: #dcb386;
+  }
+  .total {
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    background: url('../../assets/medalAll.svg') no-repeat center center;
+  }
 }

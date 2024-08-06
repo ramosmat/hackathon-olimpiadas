@@ -6,7 +6,7 @@ const CountryCard = ({ country }) => {
     <section className={styles.section}>
       <div className={styles.country}>
         <p>{country.rank}</p>
-        <img src={country.flag_url} alt="bandeira" />
+        <img src={country.flag_url} alt="bandeira" title={country.name} />
         <p>{country.name}</p>
       </div>
 
