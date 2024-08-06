@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { countriesUrl } from '../../API';
 import useFetch from '../../hooks/useFetch';
 import styles from './Home.module.css';
@@ -6,18 +6,42 @@ import CountryCard from './CountryCard';
 import { Circles, ColorRing } from 'react-loader-spinner';
 
 const Home = () => {
-  const total = 10;
-  const { loading, data, request } = useFetch();
+  const { data, setData, loading, request } = useFetch();
 
-  React.useEffect(() => {
-    async function fetchCountries() {
-      const { response, json } = await request(countriesUrl);
+  //Estado começa na pagina 1 e quando o usuário chega no final da pagina, soma mais 1
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    async function getCountries() {
+      const { response, json } = await request(`${countriesUrl}?page=${page}`);
+
+      if (data === null) {
+        return;
+      } else {
+        setData([...data, ...json.data]);
+      }
     }
 
-    fetchCountries();
-  }, [request]);
+    getCountries();
+  }, [request, page]);
 
-  if (loading)
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  if (loading && page === 1) {
     return (
       <div className="container">
         <h1 className="title">Quadro de Medalhas</h1>
@@ -26,6 +50,7 @@ const Home = () => {
         </div>
       </div>
     );
+  }
 
   if (data) {
     return (
