@@ -90,3 +90,9 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (width <= 350px) {
+  .cardsFlex {
+    grid-template-columns: 1fr;
+  }
+}
