@@ -1,0 +1,50 @@
+.infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.divMedals {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+}
+
+.divMedals p {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #55606f;
+}
+
+.divMedals span {
+  color: #393f48;
+}
+
+.rank,
+.gold,
+.silver,
+.bronze,
+.total {
+  display: flex;
+  align-items: center;
+}
+
+.rank::before,
+.gold::before,
+.silver::before,
+.bronze::before,
+.total::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+
+  background-color: gold;
+}
+
+.divImg {
+  max-width: 150px;
+  border: 1px solid black;
+}

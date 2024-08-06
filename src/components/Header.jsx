@@ -9,9 +9,9 @@ const Header = () => {
       <Emblema />
       <nav className={styles.nav}>
         <NavLink to="/">Medalhas</NavLink>
-        <NavLink to="/esportes">Esportes</NavLink>
-        <NavLink to="/eventos">Eventos</NavLink>
-        <NavLink to="/locais">Locais</NavLink>
+        <NavLink to="esportes">Esportes</NavLink>
+        <NavLink to="eventos">Eventos</NavLink>
+        <NavLink to="locais">Locais</NavLink>
       </nav>
     </div>
   );
