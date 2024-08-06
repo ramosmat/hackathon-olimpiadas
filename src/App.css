@@ -85,11 +85,12 @@ a {
 }
 
 .loader {
-  width: 80px;
-  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.loader svg {
   animation: spin 2s linear infinite;
 }
 

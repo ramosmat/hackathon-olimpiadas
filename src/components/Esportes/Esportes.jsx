@@ -2,7 +2,7 @@ import React from 'react';
 import { sportsUrl } from '../../API';
 import useFetch from '../../hooks/useFetch';
 import EsportesCard from './EsportesCard';
-import { Circles, ColorRing } from 'react-loader-spinner';
+import { ColorRing } from 'react-loader-spinner';
 
 const Esportes = () => {
   const { data, loading, request } = useFetch();

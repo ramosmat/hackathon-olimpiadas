@@ -5,34 +5,46 @@ import useFetch from '../../hooks/useFetch';
 import CountryItem from './CountryItem';
 import { ColorRing } from 'react-loader-spinner';
 
-const CountryCard = ({ country }) => {
+const CountryCard = () => {
   const { data, setData, loading, request } = useFetch();
 
   //Estado começa na pagina 1 e quando o usuário chega no final da pagina, soma mais 1
   const [page, setPage] = useState(1);
+  // const [finalPage, setFinalPage] = useState();
+  const finalPage = 5;
+
+  useEffect(() => {
+    console.log('ativou');
+
+    console.log('page:', page);
+
+    console.log('data:', data);
+  }, [page]);
 
   useEffect(() => {
     async function getCountries() {
       const { response, json } = await request(`${countriesUrl}?page=${page}`);
 
-      if (data === null) {
+      if (json.data === null) {
         return;
       } else {
         setData([...data, ...json.data]);
       }
     }
 
-    getCountries();
+    if (page <= finalPage) {
+      getCountries();
+    }
   }, [request, page]);
 
-  const handleScroll = () => {
+  function handleScroll() {
     if (
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
     ) {
       setPage((prevPage) => prevPage + 1);
     }
-  };
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -73,11 +85,17 @@ const CountryCard = ({ country }) => {
             <span className={styles.total} />
           </div>
         </section>
+
         <section>
           {data.map((country) => (
             <CountryItem key={country.id} country={country} />
           ))}
         </section>
+        {loading && (
+          <div className="loader">
+            <ColorRing />
+          </div>
+        )}
       </div>
     );
 };
