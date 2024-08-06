@@ -31,7 +31,7 @@ const Locais = () => {
         <h1 className="title">Locais</h1>
 
         <div>
-          {data.data.map((local) => (
+          {data.map((local) => (
             <LocalCard key={local.id} local={local} />
           ))}
         </div>

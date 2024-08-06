@@ -45,7 +45,7 @@ const Home = () => {
           </div>
         </section>
         <section>
-          {data.data.map((country) => (
+          {data.map((country) => (
             <CountryCard key={country.id} country={country} />
           ))}
         </section>

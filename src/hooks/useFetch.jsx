@@ -18,13 +18,13 @@ const useFetch = () => {
       json = null;
       setError(err.message);
     } finally {
-      setData(json);
+      setData(json.data);
       setLoading(false);
       return { response, json };
     }
   }, []);
 
-  return { data, loading, error, request };
+  return { data, setData, loading, error, request };
 };
 
 export default useFetch;

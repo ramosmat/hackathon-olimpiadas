@@ -31,7 +31,7 @@ const Esportes = () => {
         <h1 className="title">Esportes</h1>
 
         <div className="cardsFlex">
-          {data.data.map((sport) => (
+          {data.map((sport) => (
             <EsportesCard key={sport.id} sport={sport} />
           ))}
         </div>
