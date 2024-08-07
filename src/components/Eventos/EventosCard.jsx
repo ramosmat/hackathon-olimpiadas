@@ -71,6 +71,13 @@ const EventosCard = () => {
             <EventosItem key={event.id} event={event} />
           ))}
         </div>
+        {loading && (
+          <div className="container">
+            <div className="loader">
+              <ColorRing />
+            </div>
+          </div>
+        )}
       </div>
     );
   }
