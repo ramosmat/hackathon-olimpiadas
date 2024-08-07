@@ -64,26 +64,28 @@ const Evento = () => {
             </p>
           </div>
 
-          <div className={styles.divCompetidores}>
-            <h3>Competidores:</h3>
-            {data.competitors.map((competitor) => (
-              <div
-                key={competitor.competitor_name}
-                className={styles.competitoresNomes}
-              >
-                <div className={styles.divImg}>
-                  <img src={competitor.country_flag_url} alt="bandeira" />
+          {data.competitors.length > 0 && (
+            <div className={styles.divCompetidores}>
+              <h3>Competidores:</h3>
+              {data.competitors.map((competitor) => (
+                <div
+                  key={competitor.competitor_name}
+                  className={styles.competitoresNomes}
+                >
+                  <div className={styles.divImg}>
+                    <img src={competitor.country_flag_url} alt="bandeira" />
+                  </div>
+                  {competitor.competitor_name} (
+                  <span>
+                    {competitor.result_winnerLoserTie
+                      ? competitor.result_winnerLoserTie
+                      : 'Em progresso...'}
+                    )
+                  </span>
                 </div>
-                {competitor.competitor_name} (
-                <span>
-                  {competitor.result_winnerLoserTie
-                    ? competitor.result_winnerLoserTie
-                    : 'Em progresso...'}
-                  )
-                </span>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           <div className={styles.divEmblem}>
             <img src={data.discipline_pictogram} alt="emblem" />
