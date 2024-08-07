@@ -38,7 +38,9 @@ a {
 }
 
 .container {
-  margin: 0 2rem;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .subTitle,
@@ -97,8 +99,8 @@ a {
 /* Classes usadas nas paginas de Esportes e Eventos */
 .cardsFlex {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
 
 @media (width <= 800px) {
