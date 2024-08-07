@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Country.module.css';
 import useFetch from '../../../hooks/useFetch';
-import EventosCard from '../../Eventos/EventosCard';
 import { eventsUrl, countriesUrl } from '../../../API';
 import { ColorRing } from 'react-loader-spinner';
+import EventosItem from '../../Eventos/EventosItem';
 
 const Country = () => {
   const { loading, request } = useFetch();
@@ -98,7 +98,7 @@ const Country = () => {
   if (loadingEvents) {
     return (
       <div className="container">
-        <h1 className="title">Eventos</h1>
+        <h1 className="title">Carregando eventos do país</h1>
         <div className="loader">
           <ColorRing />
         </div>
@@ -140,7 +140,7 @@ const Country = () => {
         <h2 className="subTitle">Eventos</h2>
         <ul className="cardsFlex">
           {countryEvents.map((event) => (
-            <EventosCard key={event.id} event={event} />
+            <EventosItem key={event.id} event={event} />
           ))}
         </ul>
       </section>

@@ -1,44 +1,79 @@
-import React from 'react';
-import styles from './EventosCard.module.css';
+import React, { useState, useEffect } from 'react';
+import { eventsUrl } from '../../API';
+import useFetch from '../../hooks/useFetch';
+import { Circles, ColorRing } from 'react-loader-spinner';
+import EventosItem from './EventosItem';
 
-const EventosCard = ({ event }) => {
-  return (
-    <div className={styles.card}>
-      <div className={styles.eventTitle}>
-        <h2 className={styles.name}>{event.discipline_name}</h2>
-        <div className={styles.divImg}>
-          <img src={event.discipline_pictogram} alt="event_emblem" />
+const EventosCard = () => {
+  const { data, setData, loading, request } = useFetch();
+
+  //Estado começa na pagina 1 e quando o usuário chega no final da pagina, soma mais 1
+  const [page, setPage] = useState(1);
+  const [finalPage, setFinalPage] = useState(10);
+
+  useEffect(() => {
+    async function getEvents() {
+      const { response, json, totalPages } = await request(
+        `${eventsUrl}?page=${page}`,
+      );
+
+      if (data === null) {
+        return;
+      } else {
+        setData([...data, ...json.data]);
+      }
+
+      if (totalPages) {
+        setFinalPage(totalPages);
+      }
+    }
+
+    getEvents();
+  }, [request, page]);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      if (!loading) {
+        setPage((prevPage) => prevPage + 1);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  if (loading && page === 1) {
+    return (
+      <div className="container">
+        <h1 className="title">Eventos</h1>
+        <div className="loader">
+          <ColorRing />
         </div>
       </div>
-      <div className={styles.infos}>
-        <p className={styles.p}>
-          Categoria:{' '}
-          <span className={styles.span}>{event.detailed_event_name}</span>
-        </p>
-        <p className={styles.p}>
-          Data: <span className={styles.span}>{event.day}</span>
-        </p>
-        <p className={styles.p}>
-          Início:{' '}
-          <span className={styles.span}>
-            {new Date(event.start_date).toLocaleTimeString()}
-          </span>
-        </p>
-        <p className={styles.p}>
-          Fim:{' '}
-          <span className={styles.span}>
-            {new Date(event.end_date).toLocaleTimeString()}
-          </span>
-        </p>
-        <p className={styles.p}>
-          Local: <span className={styles.span}>{event.venue_name}</span>
-        </p>
-        <p className={styles.p}>
-          Status: <span className={styles.span}>{event.status}</span>
-        </p>
+    );
+  }
+
+  if (data) {
+    return (
+      <div className="container">
+        <h1 className="title">Eventos</h1>
+        <div className="cardsFlex">
+          {data.map((event) => (
+            <EventosItem key={event.id} event={event} />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return null;
 };
 
 export default EventosCard;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './CountryItem.module.css';
-import { eventsUrl } from '../../API';
 import useFetch from '../../hooks/useFetch';
 
 const CountryItem = ({ country }) => {

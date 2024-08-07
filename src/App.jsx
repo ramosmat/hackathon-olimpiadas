@@ -3,10 +3,11 @@ import './App.css';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Esportes from './components/Esportes/Esportes';
-import Eventos from './components/Eventos/Eventos';
 import Locais from './components/Locais/Locais';
-import Country from './components/Home/Paises/Country';
+import Country from './components/Home/Pais/Country';
 import CountryCard from './components/Home/CountryCard';
+import EventosCard from './components/Eventos/EventosCard';
+import Evento from './components/Eventos/Evento/Evento';
 
 const App = () => {
   return (
@@ -15,9 +16,10 @@ const App = () => {
         <Header />
         <main>
           <Routes>
+            <Route path="esportes" element={<Esportes />} />
+            <Route path="eventos" element={<EventosCard />} />
+            <Route path="eventos/*" element={<Evento />} />
             <Route path="pais/*" element={<Country />} />
-            <Route path="esportes/" element={<Esportes />} />
-            <Route path="eventos/" element={<Eventos />} />
             <Route path="locais" element={<Locais />} />
             <Route path="*" element={<CountryCard />} />
           </Routes>
