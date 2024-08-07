@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 0.5rem;
   padding: 1rem;
   background-color: white;
   box-shadow: 1px 1px 2px 1px #d3d3d3;
@@ -10,8 +9,8 @@
 }
 
 .infos {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
@@ -30,9 +29,8 @@
 }
 
 .divCompetidores {
-  place-self: start;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
@@ -54,4 +52,19 @@
 
 .divEmblem {
   max-width: 150px;
+}
+
+@media (width <= 550px) {
+  .section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (width <= 450px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

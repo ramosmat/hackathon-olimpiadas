@@ -108,6 +108,15 @@ a {
 }
 
 @media (width <= 460px) {
+  .title {
+    font-size: 2rem;
+  }
+  .title::after {
+    width: 1rem;
+    height: 1rem;
+    bottom: 2px;
+    left: -3px;
+  }
   .cardsFlex {
     grid-template-columns: repeat(2, 1fr);
   }
