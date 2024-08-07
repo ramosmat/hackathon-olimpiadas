@@ -114,19 +114,19 @@ const Country = () => {
           <section className={styles.infos}>
             <div className={styles.divMedals}>
               <p className={styles.rank}>
-                Rank: <span>{countryData.rank}</span>
+                🏆 Rank: <span>{countryData.rank}</span>
               </p>
               <p className={styles.gold}>
-                Medalhas de Ouro: <span>{countryData.gold_medals}</span>
+                🥇 Medalhas de Ouro: <span>{countryData.gold_medals}</span>
               </p>
               <p className={styles.silver}>
-                Medalhas de Prata: <span>{countryData.silver_medals}</span>
+                🥈 Medalhas de Prata: <span>{countryData.silver_medals}</span>
               </p>
               <p className={styles.bronze}>
-                Medalhas de Bronze: <span>{countryData.bronze_medals}</span>
+                🥉 Medalhas de Bronze: <span>{countryData.bronze_medals}</span>
               </p>
               <p className={styles.total}>
-                Total de Medalhas: <span>{countryData.total_medals}</span>
+                🏅 Total de Medalhas: <span>{countryData.total_medals}</span>
               </p>
             </div>
             <div className={styles.divImg}>
