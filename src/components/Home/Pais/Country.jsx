@@ -19,17 +19,6 @@ const Country = () => {
   const pais = url[url.length - 1];
 
   useEffect(() => {
-    console.log('ativou');
-
-    console.log('page:', page);
-    console.log('finalPage: ', finalPage);
-
-    console.log('countryData:', countryData);
-    console.log('countryEvents:', countryEvents);
-    console.log('loadingData:', loadingData, 'loadingEvents', loadingEvents);
-  }, [page]);
-
-  useEffect(() => {
     async function getCountryEvents() {
       setLoadingEvents(true);
 

@@ -13,15 +13,6 @@ const CountryCard = () => {
   const [finalPage, setFinalPage] = useState(2);
 
   useEffect(() => {
-    console.log('ativou');
-
-    console.log('page:', page);
-    console.log('finalPage: ', finalPage);
-
-    console.log('data:', data);
-  }, [page]);
-
-  useEffect(() => {
     async function getCountries() {
       const { json, totalPages } = await request(
         `${countriesUrl}?page=${page}`,
