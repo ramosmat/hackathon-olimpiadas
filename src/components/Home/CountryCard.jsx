@@ -48,7 +48,9 @@ const CountryCard = () => {
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
     ) {
-      setPage((prevPage) => prevPage + 1);
+      if (!loading) {
+        setPage((prevPage) => prevPage + 1);
+      }
     }
   }
 

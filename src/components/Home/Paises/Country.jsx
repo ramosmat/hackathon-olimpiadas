@@ -6,18 +6,32 @@ import { eventsUrl, countriesUrl } from '../../../API';
 import { ColorRing } from 'react-loader-spinner';
 
 const Country = () => {
-  const { request } = useFetch();
+  const { loading, request } = useFetch();
   const [countryData, setCountryData] = useState(null);
   const [countryEvents, setCountryEvents] = useState([]);
-  const [loading, setLoading] = useState(true); // Inicia como true para mostrar o loader inicial
+  const [loadingEvents, setLoadingEvents] = useState(true);
+  const [loadingData, setLoadingData] = useState(true);
+
   const [page, setPage] = useState(1);
+  const [finalPage, setFinalPage] = useState(10);
 
   const url = window.location.href.split('/');
   const pais = url[url.length - 1];
 
   useEffect(() => {
+    console.log('ativou');
+
+    console.log('page:', page);
+    console.log('finalPage: ', finalPage);
+
+    console.log('countryData:', countryData);
+    console.log('countryEvents:', countryEvents);
+    console.log('loadingData:', loadingData, 'loadingEvents', loadingEvents);
+  }, [page]);
+
+  useEffect(() => {
     async function getCountryEvents() {
-      setLoading(true);
+      setLoadingEvents(true);
 
       const countryResponse = await fetch(`${eventsUrl}?country=${pais}`);
       const countryJson = await countryResponse.json();
@@ -26,9 +40,11 @@ const Country = () => {
       const countriesResponse = await fetch(countriesUrl);
       const countriesJson = await countriesResponse.json();
       const country = countriesJson.data.find((item) => item.id === pais);
-      setCountryData(country);
 
-      setLoading(false);
+      if (countryJson.data) {
+        setCountryData(country);
+        setLoadingEvents(false);
+      }
     }
 
     getCountryEvents();
@@ -37,11 +53,11 @@ const Country = () => {
   useEffect(() => {
     async function getEvents() {
       if (page === 1) return; // Evita recarregar a primeira página
-      setLoading(true);
 
-      const { response, json } = await request(
+      const { json, totalPages } = await request(
         `${eventsUrl}?country=${pais}&page=${page}`,
       );
+
       if (json && json.data) {
         setCountryEvents((prevEvents) => {
           const newEvents = json.data.filter(
@@ -51,18 +67,24 @@ const Country = () => {
         });
       }
 
-      setLoading(false);
+      if (totalPages) {
+        setFinalPage(totalPages);
+      }
     }
 
-    getEvents();
+    if (page <= finalPage && !loading) {
+      getEvents();
+    }
   }, [page]);
 
   const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop >=
-      document.documentElement.offsetHeight - 10
+      document.documentElement.offsetHeight
     ) {
-      setPage((prevPage) => prevPage + 1);
+      if (!loading && !loadingEvents) {
+        setPage((prevPage) => prevPage + 1);
+      }
     }
   };
 
@@ -71,9 +93,9 @@ const Country = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [loading, loadingEvents]);
 
-  if (loading && countryData === null && countryEvents.length === 0) {
+  if (loadingEvents) {
     return (
       <div className="container">
         <h1 className="title">Eventos</h1>
@@ -121,12 +143,15 @@ const Country = () => {
             <EventosCard key={event.id} event={event} />
           ))}
         </ul>
-        {loading && (
+      </section>
+
+      {loading && (
+        <div className="container">
           <div className="loader">
             <ColorRing />
           </div>
-        )}
-      </section>
+        </div>
+      )}
     </div>
   );
 };
