@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/Header';
-import Esportes from './components/Esportes/Esportes';
+import EsportesCard from './components/Esportes/EsportesCard';
+import Esporte from './components/Esportes/Esporte/Esporte';
 import Locais from './components/Locais/Locais';
 import Country from './components/Home/Pais/Country';
 import CountryCard from './components/Home/CountryCard';
@@ -16,7 +17,8 @@ const App = () => {
         <Header />
         <main>
           <Routes>
-            <Route path="esportes" element={<Esportes />} />
+            <Route path="esportes" element={<EsportesCard />} />
+            <Route path="esportes/*" element={<Esporte />} />
             <Route path="eventos" element={<EventosCard />} />
             <Route path="eventos/*" element={<Evento />} />
             <Route path="pais/*" element={<Country />} />
