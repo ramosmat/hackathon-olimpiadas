@@ -10,29 +10,35 @@ const CountryCard = () => {
 
   //Estado começa na pagina 1 e quando o usuário chega no final da pagina, soma mais 1
   const [page, setPage] = useState(1);
-  // const [finalPage, setFinalPage] = useState();
-  const finalPage = 5;
+  const [finalPage, setFinalPage] = useState(2);
 
   useEffect(() => {
     console.log('ativou');
 
     console.log('page:', page);
+    console.log('finalPage: ', finalPage);
 
     console.log('data:', data);
   }, [page]);
 
   useEffect(() => {
     async function getCountries() {
-      const { response, json } = await request(`${countriesUrl}?page=${page}`);
+      const { json, totalPages } = await request(
+        `${countriesUrl}?page=${page}`,
+      );
 
       if (json.data === null) {
         return;
       } else {
         setData([...data, ...json.data]);
       }
+
+      if (totalPages) {
+        setFinalPage(totalPages);
+      }
     }
 
-    if (page <= finalPage) {
+    if (page <= finalPage && !loading) {
       getCountries();
     }
   }, [request, page]);
@@ -92,8 +98,10 @@ const CountryCard = () => {
           ))}
         </section>
         {loading && (
-          <div className="loader">
-            <ColorRing />
+          <div className="container">
+            <div className="loader">
+              <ColorRing />
+            </div>
           </div>
         )}
       </div>
