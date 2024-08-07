@@ -41,11 +41,8 @@
   color: #4b5563;
 }
 
-@media (width <= 360px) {
+@media (width <= 380px) {
   .divImg {
-    max-width: 20px;
-  }
-  .name {
-    font-size: 1.25rem;
+    display: none;
   }
 }

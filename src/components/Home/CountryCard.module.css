@@ -45,7 +45,7 @@
   }
 }
 
-@media (width <= 350px) {
+@media (width <= 380px) {
   .barMedals p {
     display: none;
   }

@@ -19,7 +19,7 @@
   max-width: 100px;
 }
 
-@media (width <= 360px) {
+@media (width <= 380px) {
   .divImg {
     max-width: 80px;
   }

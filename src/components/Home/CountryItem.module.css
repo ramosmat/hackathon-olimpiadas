@@ -121,7 +121,7 @@
   }
 }
 
-@media (width <= 350px) {
+@media (width <= 380px) {
   .gold::before,
   .silver::before,
   .bronze::before,

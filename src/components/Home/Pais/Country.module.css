@@ -30,19 +30,6 @@
   align-items: center;
 }
 
-/* .rank::before,
-.gold::before,
-.silver::before,
-.bronze::before,
-.total::before {
-  content: '';
-  display: block;
-  width: 12px;
-  height: 12px;
-  margin-right: 5px;
-  background-color: gold;
-} */
-
 .divImg {
   max-width: 150px;
   border: 1px solid black;
@@ -54,7 +41,7 @@
   }
 }
 
-@media (width <= 350px) {
+@media (width <= 380px) {
   .divImg {
     display: none;
   }

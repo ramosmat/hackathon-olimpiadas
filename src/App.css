@@ -122,6 +122,11 @@ a {
   .cardsFlex {
     grid-template-columns: repeat(2, 1fr);
   }
+  .container {
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 @media (width <= 350px) {
