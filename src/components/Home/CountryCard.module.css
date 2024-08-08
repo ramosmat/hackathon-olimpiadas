@@ -65,7 +65,7 @@
 
 @media (width <= 470px) {
   .barMedals {
-    width: 200px;
+    width: 220px;
     gap: 0.5rem;
   }
 }

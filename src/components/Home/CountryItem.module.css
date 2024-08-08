@@ -26,16 +26,6 @@
   max-width: 60px;
 }
 
-@media (width <= 600px) {
-  .country {
-    gap: 0.5rem;
-  }
-  .country img {
-    /* display: none; */
-    max-width: 30px;
-  }
-}
-
 .country p {
   font-size: 1.25rem;
   font-style: italic;
@@ -56,30 +46,6 @@
   place-self: center;
   font-size: 1.25rem;
   font-weight: bold;
-}
-
-@media (width <= 600px) {
-  .medals {
-    width: 250px;
-    gap: 0.8rem;
-  }
-}
-
-@media (width <= 470px) {
-  .medals {
-    width: 200px;
-    gap: 0.5rem;
-  }
-}
-
-@media (width <= 400px) {
-  .medals {
-    width: 150px;
-  }
-  .country p,
-  .medals p {
-    font-size: 1rem;
-  }
 }
 
 .gold,
@@ -103,16 +69,6 @@
   border-radius: 50%;
 }
 
-@media (width <= 600px) {
-  .gold::before,
-  .silver::before,
-  .bronze::before,
-  .total::before {
-    width: 16px;
-    height: 16px;
-  }
-}
-
 .gold::before {
   background-color: #fb1;
 }
@@ -133,6 +89,24 @@
 }
 
 @media (width <= 600px) {
+  .country {
+    gap: 0.5rem;
+  }
+  .country img {
+    /* display: none; */
+    max-width: 30px;
+  }
+  .medals {
+    width: 250px;
+    gap: 0.8rem;
+  }
+  .gold::before,
+  .silver::before,
+  .bronze::before,
+  .total::before {
+    width: 16px;
+    height: 16px;
+  }
   .total::before {
     border-radius: 50%;
     width: 15px;
@@ -140,7 +114,21 @@
   }
 }
 
+@media (width <= 470px) {
+  .medals {
+    width: 220px;
+    gap: 0.5rem;
+  }
+}
+
 @media (width <= 400px) {
+  .medals {
+    width: 150px;
+  }
+  .country p,
+  .medals p {
+    font-size: 1rem;
+  }
   .gold::before,
   .silver::before,
   .bronze::before,
