@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Header.module.css';
-import Emblema from '../assets/emblem.svg?react';
+import Olympics from '../assets/olympics.svg?react';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
     <div className={styles.header}>
-      <Emblema />
+      <Olympics />
       <nav className={styles.nav}>
         <NavLink to="/">Medalhas</NavLink>
         <NavLink to="esportes">Esportes</NavLink>
