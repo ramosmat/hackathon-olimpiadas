@@ -1,17 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './CountryItem.module.css';
-import useFetch from '../../hooks/useFetch';
+import useMedia from '../../hooks/useMedia';
 
 const CountryItem = ({ country }) => {
-  const { data, loading, request } = useFetch();
+  const mobile = useMedia('(max-width: 600px)');
+  console.log(mobile);
 
   return (
     <NavLink to={`/pais/${country.id}`} className={styles.section}>
       <div className={styles.country}>
         <p>{country.rank}</p>
         <img src={country.flag_url} alt="bandeira" title={country.name} />
-        <p>{country.name}</p>
+        <p>{!mobile ? country.name : country.id}</p>
       </div>
 
       <div className={styles.medals}>
