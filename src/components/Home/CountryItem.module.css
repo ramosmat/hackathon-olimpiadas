@@ -31,7 +31,8 @@
     gap: 0.5rem;
   }
   .country img {
-    display: none;
+    /* display: none; */
+    max-width: 30px;
   }
 }
 
@@ -42,20 +43,38 @@
 }
 
 .medals {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
+  width: 315px;
+  text-align: center;
 }
 
 .medals p {
+  place-self: center;
   font-size: 1.25rem;
   font-weight: bold;
 }
 
 @media (width <= 600px) {
   .medals {
+    width: 250px;
     gap: 0.8rem;
+  }
+}
+
+@media (width <= 470px) {
+  .medals {
+    width: 200px;
+    gap: 0.5rem;
+  }
+}
+
+@media (width <= 400px) {
+  .medals {
+    width: 150px;
   }
   .country p,
   .medals p {
@@ -121,7 +140,7 @@
   }
 }
 
-@media (width <= 380px) {
+@media (width <= 400px) {
   .gold::before,
   .silver::before,
   .bronze::before,
@@ -138,5 +157,11 @@
   }
   .bronze {
     color: #dcb386;
+  }
+}
+
+@media (width <= 350px) {
+  .medals {
+    width: 120px;
   }
 }

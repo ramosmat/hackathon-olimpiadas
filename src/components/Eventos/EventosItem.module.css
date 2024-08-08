@@ -41,7 +41,7 @@
   color: #4b5563;
 }
 
-@media (width <= 380px) {
+@media (width <= 400px) {
   .divImg {
     display: none;
   }

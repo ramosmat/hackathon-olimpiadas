@@ -17,16 +17,24 @@
 }
 
 .barCountry p {
+  text-align: center;
   font-size: 1.25rem;
   font-style: italic;
   font-weight: bold;
 }
 
+.barCountry p:nth-child(2) {
+  width: 100px;
+}
+
 .barMedals {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
+  width: 315px;
+  text-align: center;
 }
 
 .barMedals p {
@@ -34,18 +42,42 @@
   font-weight: bold;
 }
 
+.gold,
+.silver,
+.bronze,
+.total {
+  display: none;
+}
+
 @media (width <= 600px) {
-  .barCountry p,
-  .barMedals p {
-    font-size: 1rem;
+  .barCountry p:nth-child(2) {
+    width: 60px;
   }
+  .barMedals {
+    width: 250px;
+  }
+
   .barCountry,
   .barMedals {
     gap: 0.5rem;
   }
 }
 
-@media (width <= 380px) {
+@media (width <= 470px) {
+  .barMedals {
+    width: 200px;
+    gap: 0.5rem;
+  }
+}
+
+@media (width <= 400px) {
+  .barMedals {
+    width: 150px;
+  }
+  .barCountry p {
+    font-size: 1rem;
+  }
+
   .barMedals p {
     display: none;
   }
@@ -58,6 +90,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
+    place-self: center;
   }
   .gold {
     background-color: #fb1;
@@ -75,5 +108,11 @@
     width: 16px;
     height: 16px;
     background: url('../../assets/medalAll.svg') no-repeat center center;
+  }
+}
+
+@media (width <= 350px) {
+  .barMedals {
+    width: 120px;
   }
 }
